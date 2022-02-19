@@ -1,0 +1,52 @@
+.tilt {
+    display: none;
+    z-index: -1;
+}
+
+@media (min-width: 640px) {
+    .tilt {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+        display: block;
+    }
+
+    .tilt svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 500px;
+    }
+
+    .tilt .shapeFill {
+        fill: #F5F5F4;
+    }
+}
+
+@media (min-width: 1024px) {
+    .tilt {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        transform: rotate(180deg);
+        display: block;
+    }
+
+    .tilt svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 500px;
+    }
+
+    .tilt .shapeFill {
+        fill: #F5F5F4;
+    }
+}
