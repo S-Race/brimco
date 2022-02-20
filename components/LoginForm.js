@@ -18,7 +18,7 @@ const LoginForm = () => {
 
     return (
         <form onSubmit={login} className="flex flex-col font-bold lg:w-2/5 md:w-2/3 w-full
-            rounded-lg p-6 sm:drop-shadow-lg bg-transparent bg-stone-100 sm:shadow-lg">
+            rounded-lg p-6 sm:drop-shadow-lg bg-stone-100 sm:shadow-lg">
             <label className="text-4xl text-zinc-800 my-4">Login</label>
             <FormInput type="email" value={formData.email} name="email" onChange={updateForm} label="Email" />
             <FormInput type="password" value={formData.password} name="password"
