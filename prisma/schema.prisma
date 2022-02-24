@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Cart {
+  customerId String
+  itemId     Int
+  Customer   Customer @relation(fields: [customerId], references: [email], onDelete: NoAction, onUpdate: NoAction)
+  Item       Item     @relation(fields: [itemId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([customerId, itemId])
+}
+
+model Customer {
+  firstname       String
+  lastname        String?           @default("")
+  address         String?           @default("")
+  email           String            @id
+  Cart            Cart[]
+  PurchaseHistory PurchaseHistory[]
+}
+
+model Item {
+  name       String
+  id         Int        @id @default(autoincrement())
+  supplierid Int
+  stock      Int?       @default(0)
+  thumbnails Json       @db.Json
+  Suppliers  Suppliers  @relation(fields: [supplierid], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  Cart       Cart[]
+  
+  @@index(name)
+}
+
+model PurchaseHistory {
+  item       Int
+  date       DateTime  @db.Timestamp(6) @default(now())
+  quantity   Int
+  customerId String
+  id         Int       @id @default(autoincrement())
+  Customer   Customer  @relation(fields: [customerId], references: [email], onDelete: NoAction, onUpdate: NoAction)
+  
+  @@index(customerId)
+}
+
+model Suppliers {
+  name  String
+  id    Int     @id @default(autoincrement())
+  email String
+  Item  Item[]
+
+  @@index(name)
+}
