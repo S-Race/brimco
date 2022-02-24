@@ -1,6 +1,9 @@
 import Head from 'next/head'
 import React from 'react'
 import Navbar from '../components/Navbar'
+import HeroSection from '../components/HeroSection'
+import HomeCards from '../components/HomeCards'
+import Footer from '../components/Footer'
 
 const home = () => {
   return (
@@ -10,7 +13,9 @@ const home = () => {
             <meta name="description" content="Homepage for Brimco" />
         </Head>
         <Navbar />
-        <h1>Brimco - Home</h1>
+        <HeroSection />
+        <HomeCards />
+        <Footer />
     </div>
   )
 }
