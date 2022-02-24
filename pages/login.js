@@ -5,7 +5,8 @@ import LoginTilt from "../components/LoginTilt";
 
 const Login = () => {
     return (
-        <div className="bg-stone-100 sm:bg-gradient-to-r from-cyan-500 to-blue-500 opacity-[.99] relative">
+        <div className="bg-stone-100 dark:bg-stone-800 sm:bg-gradient-to-r from-cyan-500 to-blue-500 dark:from-cyan-600
+            dark:to-blue-600 opacity-[.99] relative">
             <Head>
                 <title>Brimco - Login</title>
                 <meta name="description" content="Login to Brimco" />
