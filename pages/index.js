@@ -1,7 +1,20 @@
+import { useEffect, useState } from "react";
 import Head from "next/head"
+import { useTheme } from "next-themes";
 import styles from "../styles/Home.module.css"
 
 const Home = () => {
+    const [isMounted, setIsMounted] = useState(false);
+    const { theme, setTheme } = useTheme();
+
+    useEffect(() => setIsMounted(true), []);
+
+    const switchTheme = () => {
+        if (isMounted)
+            setTheme(theme === "light" ? "dark" : "light");
+    };
+
+    if (!isMounted) return null
     return (
         <div className={[styles.container, " bg-gray-900 text-gray-100"]}>
             <Head>
