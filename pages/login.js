@@ -1,7 +1,7 @@
-import Head from 'next/head'
+import Head from "next/head"
 
-import LoginForm from '../components/LoginForm';
-import LoginTilt from '../components/LoginTilt';
+import LoginForm from "../components/LoginForm";
+import LoginTilt from "../components/LoginTilt";
 
 const Login = () => {
     return (
