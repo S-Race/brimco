@@ -21,6 +21,7 @@ model Customer {
   lastname        String?           @default("")
   address         String?           @default("")
   email           String            @id
+  profileImage    String?
   Cart            Cart[]
   PurchaseHistory PurchaseHistory[]
 }
@@ -31,7 +32,7 @@ model Item {
   supplierid Int
   stock      Int?       @default(0)
   thumbnails Json       @db.Json
-  Suppliers  Suppliers  @relation(fields: [supplierid], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  Supplier  Supplier  @relation(fields: [supplierid], references: [id], onDelete: NoAction, onUpdate: NoAction)
   Cart       Cart[]
   
   @@index(name)
@@ -48,7 +49,7 @@ model PurchaseHistory {
   @@index(customerId)
 }
 
-model Suppliers {
+model Supplier {
   name  String
   id    Int     @id @default(autoincrement())
   email String
